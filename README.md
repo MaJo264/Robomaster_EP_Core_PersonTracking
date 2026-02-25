@@ -1,6 +1,6 @@
-# Person Tracking and Object Detection using Robomaster EP Core and YOLOv8
+# Person Tracking and Object Detection using Robomaster EP Core and YOLOv3
 
-This project involves developing an advanced system for person tracking and object detection using the **Robomaster EP Core** robot and **YOLOv8**. As part of my second semester course project for my Master's program, I undertook this project to explore the integration of robotics and computer vision. The project was divided into three main objectives: moving the robot from point A to point B, detecting and avoiding objects, and tracking a person.
+This project involves developing an advanced system for person tracking and object detection using the **Robomaster EP Core** robot and **YOLOv3**. As part of my second semester course project for my Master's program, I undertook this project to explore the integration of robotics and computer vision. The project was divided into three main objectives: moving the robot from point A to point B, detecting and avoiding objects, and tracking a person.
 
 ## Project Objectives
 
