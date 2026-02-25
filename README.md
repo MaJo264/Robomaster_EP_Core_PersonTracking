@@ -8,7 +8,7 @@ This project involves developing an advanced system for person tracking and obje
     - The first objective was to program the Robomaster EP Core to navigate autonomously from a predefined starting point (Point A) to a destination (Point B). This involved utilizing the robot's built-in motion control capabilities and sensors to ensure accurate and efficient movement.
 
 2. **Detect and Avoid Objects using YOLOv3 and Sensors**
-    - The second objective focused on enhancing the robot's navigation capabilities by integrating object detection and avoidance. YOLOv8, a state-of-the-art object detection model, was employed to identify obstacles in the robot's path. The robot's sensors were used to measure the distance to these objects and adjust the path to avoid collisions.
+    - The second objective focused on enhancing the robot's navigation capabilities by integrating object detection and avoidance. YOLOv3, a state-of-the-art object detection model, was employed to identify obstacles in the robot's path. The robot's sensors were used to measure the distance to these objects and adjust the path to avoid collisions.
 
 3. **Track a Person**
     - The third objective was to develop a system for tracking a person. YOLOv3 was again utilized to detect and identify a specific person. The Robomaster EP Core then used this information to follow the person, maintaining a safe distance and adjusting its trajectory in real-time.
