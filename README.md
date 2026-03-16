@@ -1,50 +1,158 @@
-# Person Tracking and Object Detection using Robomaster EP Core and YOLOv3
+# 🤖 Autonomous Person Tracking — RoboMaster EP Core
 
-This project involves developing an advanced system for person tracking and object detection using the **Robomaster EP Core** robot and **YOLOv3**. As part of my second semester course project for my Master's program, I undertook this project to explore the integration of robotics and computer vision. The project was divided into three main objectives: moving the robot from point A to point B, detecting and avoiding objects, and tracking a person.
+Real-time person tracking and autonomous navigation on a physical robot platform,
+combining YOLOv3 object detection with the RoboMaster SDK for closed-loop control.
 
-## Project Objectives
-
-1. **Move the Robot from Point A to Point B**
-    - The first objective was to program the Robomaster EP Core to navigate autonomously from a predefined starting point (Point A) to a destination (Point B). This involved utilizing the robot's built-in motion control capabilities and sensors to ensure accurate and efficient movement.
-
-2. **Detect and Avoid Objects using YOLOv3 and Sensors**
-    - The second objective focused on enhancing the robot's navigation capabilities by integrating object detection and avoidance. YOLOv3, a state-of-the-art object detection model, was employed to identify obstacles in the robot's path. The robot's sensors were used to measure the distance to these objects and adjust the path to avoid collisions.
-
-3. **Track a Person**
-    - The third objective was to develop a system for tracking a person. YOLOv3 was again utilized to detect and identify a specific person. The Robomaster EP Core then used this information to follow the person, maintaining a safe distance and adjusting its trajectory in real-time.
-
-## Tools and Technologies
-
-- **Anaconda**: Used as the primary Python distribution and package manager, facilitating the setup of the development environment.
-- **Visual Studio Code**: Employed as the integrated development environment (IDE) for coding and debugging.
-- **Robomaster SDK**: Provided the necessary APIs and tools to control the Robomaster EP Core and integrate it with the object detection and tracking systems.
-- **YOLOv3**: Leveraged for its powerful real-time object detection capabilities, enabling the robot to detect and avoid obstacles, as well as track a person.
-
-## Project Workflow
-
-1. **Setup and Configuration**
-    - Anaconda was used to create a virtual environment, ensuring all dependencies and packages required for the project were installed and managed efficiently.
-    - Visual Studio Code was configured with the necessary extensions and tools for Python development.
-
-2. **Robot Navigation (Point A to Point B)**
-    - Using the Robomaster SDK, a path was programmed for the robot to follow from Point A to Point B. The robot's sensors were utilized to ensure accurate navigation and obstacle avoidance.
-
-3. **Object Detection and Avoidance**
-    - YOLOv3 was integrated into the system to detect objects in the robot's path. The detected objects' coordinates were used in conjunction with the robot's sensors to calculate the distance and adjust the robot's path to avoid collisions.
-
-4. **Person Tracking**
-    - YOLOv3 was trained to detect and identify a specific person. The Robomaster EP Core was programmed to follow the person, using real-time data from the detection model to adjust its movement and maintain a safe distance.
-
-## Results and Conclusion
-
-The project successfully met all three objectives. The Robomaster EP Core was able to autonomously navigate from Point A to Point B, detect and avoid objects in its path, and effectively track a person. The integration of YOLOv8 with the Robomaster SDK proved to be a powerful combination, enabling advanced object detection and tracking capabilities. This project demonstrates the potential of combining robotics with computer vision for creating intelligent and autonomous systems.
-
-## Future Work
-
-Future improvements could include:
-- Enhancing the robustness of the object detection and tracking system in various lighting conditions.
-- Implementing more sophisticated path planning algorithms to improve navigation efficiency.
-- Expanding the system to track multiple objects or people simultaneously.
+![Python](https://img.shields.io/badge/Python-3.8+-blue)
+![YOLOv3](https://img.shields.io/badge/Detection-YOLOv3-green)
+![RoboMaster](https://img.shields.io/badge/Platform-RoboMaster%20EP%20Core-red)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 
 ---
 
+## 📌 Overview
+
+This project implements a three-stage autonomous robotic system on the
+**DJI RoboMaster EP Core** — a programmable ground robot platform. The system
+combines real-time computer vision with robot control to achieve:
+
+- Autonomous point-to-point navigation
+- Dynamic obstacle detection and avoidance
+- Real-time person tracking with trajectory adjustment
+
+Built as part of an MSc in Automotive Embedded Systems (ESIGELEC, Rouen).
+
+---
+
+## 🎥 Demo
+
+> Demo videos are included in the repository:
+> - `VID-20240626-WA0006.mp4` — Autonomous navigation
+> - `VID-20240626-WA0008.mp4` — Person tracking in action
+
+---
+
+## 🏗️ System Architecture
+```
+Camera Feed
+    │
+    ▼
+YOLOv3 Detection ──► Bounding Box + Class
+    │
+    ▼
+Tracking Logic ──► Target Selection + State Estimation
+    │
+    ▼
+RoboMaster SDK ──► Motor Commands + Trajectory Adjustment
+    │
+    ▼
+Physical Robot Response
+```
+
+---
+
+## 🎯 Features
+
+### 1. Autonomous Navigation (A → B)
+Programs the RoboMaster EP Core to navigate from a defined start point to a
+destination using the built-in motion control API and onboard sensors for
+accurate positioning.
+
+### 2. Object Detection & Avoidance
+Integrates YOLOv3 to detect obstacles in the robot's camera feed in real time.
+Detected object coordinates are combined with sensor distance measurements to
+calculate collision-free path adjustments on the fly.
+
+### 3. Real-Time Person Tracking
+Uses YOLOv3 to detect and lock onto a target person. The robot continuously
+adjusts its heading and speed based on the target's position in the frame —
+maintaining a safe following distance and re-acquiring the target after
+occlusions.
+
+---
+
+## 🛠️ Tech Stack
+
+| Component | Technology |
+|-----------|-----------|
+| Object Detection | YOLOv3 |
+| Robot Control | RoboMaster SDK |
+| Language | Python 3.8+ |
+| Environment | Anaconda |
+| IDE | Visual Studio Code |
+
+---
+
+## 📁 Repository Structure
+```
+├── autonomous.py          # Point A → B navigation logic
+├── objectdetection.py     # YOLOv3 obstacle detection + avoidance
+├── persontracking.py      # Real-time person tracking pipeline
+├── Yellowdetect.py        # Colour-based detection utility
+├── import.py              # Dependency and SDK initialisation
+└── VID-20240626-WA*.mp4   # Demo videos
+```
+
+---
+
+## ⚙️ Setup & Installation
+
+### Prerequisites
+- Python 3.8+
+- Anaconda
+- DJI RoboMaster EP Core (connected via Wi-Fi or USB)
+- RoboMaster SDK
+
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/MaJo264/Robomaster_EP_Core_PersonTracking.git
+cd Robomaster_EP_Core_PersonTracking
+
+# Create and activate a virtual environment
+conda create -n robomaster python=3.8
+conda activate robomaster
+
+# Install dependencies
+pip install robomaster opencv-python numpy
+```
+
+### Running
+```bash
+# Autonomous navigation
+python autonomous.py
+
+# Object detection and avoidance
+python objectdetection.py
+
+# Person tracking
+python persontracking.py
+```
+
+---
+
+## 📊 Results
+
+All three objectives were successfully validated on real hardware:
+
+- ✅ Autonomous A→B navigation with sensor-based obstacle avoidance
+- ✅ Real-time object detection and dynamic path adjustment using YOLOv3
+- ✅ Continuous person tracking with real-time trajectory correction
+
+---
+
+## 🔮 Future Work
+
+- Upgrade detection backbone to YOLOv8 for improved accuracy and speed
+- Implement Kalman filtering for smoother state estimation under occlusion
+- Add multi-person tracking with Re-Identification (ReID)
+- Improve robustness under varying lighting conditions
+- Implement SLAM-based mapping for more complex navigation scenarios
+
+---
+
+## 👤 Author
+
+**Avin Joseph**
+MSc Automotive Embedded Systems — ESIGELEC, Rouen
+[LinkedIn](https://linkedin.com/in/avin-joseph) · [GitHub](https://github.com/MaJo264)
